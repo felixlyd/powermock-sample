@@ -120,10 +120,6 @@ public class UserServiceImplTest {
         UserService service = new UserServiceImpl(userDao);
         UserDO userDO = new UserDO();
         service.saveUser(userDO);
-        // Mockito的写法
-//        Mockito.verify(userDao, Mockito.times(1)).insertUser(userDO);
-        // Powermock的写法，VerificationModeFactory.times()替换为Mockito.times()也可
-        PowerMockito.verifyPrivate(userDao, VerificationModeFactory.times(1)).invoke("insertUser", userDO);
-
+        Mockito.verify(userDao, Mockito.times(1)).insertUser(userDO);
     }
 }

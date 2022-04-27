@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service("finalUserDataServiceImpl")
-final public class FinalUserDataServiceImpl implements UserDataService {
+final public class UserDataServiceFinalImpl implements UserDataService {
     @Override
     public int getUserCount() {
         log.info("test");

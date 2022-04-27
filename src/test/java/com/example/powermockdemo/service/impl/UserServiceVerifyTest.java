@@ -1,6 +1,6 @@
 package com.example.powermockdemo.service.impl;
 
-import com.example.powermockdemo.dao.dos.impl.TestVerifyUserDao;
+import com.example.powermockdemo.dao.dos.impl.UserDaoVerify;
 import com.example.powermockdemo.dao.vdo.UserDO;
 import org.junit.After;
 import org.junit.Before;
@@ -11,8 +11,6 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import static org.junit.Assert.*;
-
 /**
  * class classname
  *
@@ -20,8 +18,8 @@ import static org.junit.Assert.*;
  * @date 2022/4/19
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({TestVerifyUserService.class})
-public class TestVerifyUserServiceTest {
+@PrepareForTest({UserServiceVerify.class})
+public class UserServiceVerifyTest {
 
     @Before
     public void setUp() throws Exception {
@@ -33,12 +31,12 @@ public class TestVerifyUserServiceTest {
 
     @Test
     public void testSaveOrUpdateWillUseSaveUser() throws Exception {
-        TestVerifyUserDao userDao = PowerMockito.mock(TestVerifyUserDao.class);
-        PowerMockito.whenNew(TestVerifyUserDao.class).withAnyArguments().thenReturn(userDao);
+        UserDaoVerify userDao = PowerMockito.mock(UserDaoVerify.class);
+        PowerMockito.whenNew(UserDaoVerify.class).withAnyArguments().thenReturn(userDao);
         PowerMockito.doReturn(1).when(userDao).getUserCount();
 
         UserDO userDO = new UserDO();
-        TestVerifyUserService userService = new TestVerifyUserService();
+        UserServiceVerify userService = new UserServiceVerify();
         userService.saveOrUpdate(userDO);
         Mockito.verify(userDao, Mockito.never()).saveUser(userDO);
         Mockito.verify(userDao).updateUser(userDO);
@@ -46,12 +44,12 @@ public class TestVerifyUserServiceTest {
 
     @Test
     public void testSaveOrUpdateWillUseUpdateUser() throws Exception {
-        TestVerifyUserDao userDao = PowerMockito.mock(TestVerifyUserDao.class);
-        PowerMockito.whenNew(TestVerifyUserDao.class).withAnyArguments().thenReturn(userDao);
+        UserDaoVerify userDao = PowerMockito.mock(UserDaoVerify.class);
+        PowerMockito.whenNew(UserDaoVerify.class).withAnyArguments().thenReturn(userDao);
         PowerMockito.doReturn(0).when(userDao).getUserCount();
 
         UserDO userDO = new UserDO();
-        TestVerifyUserService userService = new TestVerifyUserService();
+        UserServiceVerify userService = new UserServiceVerify();
         userService.saveOrUpdate(userDO);
         Mockito.verify(userDao).saveUser(userDO);
         Mockito.verify(userDao, Mockito.never()).updateUser(userDO);

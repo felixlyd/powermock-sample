@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @date 2022/4/19
  */
 @Slf4j
-public class TestVerifyUserDao {
+public class UserDaoVerify {
     public int getUserCount() {
         log.info("test");
         throw new UnsupportedOperationException();

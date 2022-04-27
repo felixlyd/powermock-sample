@@ -3,7 +3,6 @@ package com.example.powermockdemo.service.impl;
 import com.example.powermockdemo.dao.dos.UserDataService;
 import com.example.powermockdemo.dao.vdo.UserDO;
 import com.example.powermockdemo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
@@ -12,11 +11,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
  * @author : liuyaodong
  * @date 2022/4/18
  */
-public class FinalUserServiceImpl implements UserService {
+public class UserServiceFinalImpl implements UserService {
 
     private final UserDataService userDataService;
 
-    public FinalUserServiceImpl(@Qualifier("finalUserDataServiceImpl") UserDataService userDataService) {
+    public UserServiceFinalImpl(@Qualifier("finalUserDataServiceImpl") UserDataService userDataService) {
         this.userDataService = userDataService;
     }
 

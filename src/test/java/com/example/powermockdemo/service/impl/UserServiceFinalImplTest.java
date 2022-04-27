@@ -1,7 +1,6 @@
 package com.example.powermockdemo.service.impl;
 
-import com.example.powermockdemo.dao.dos.UserDataService;
-import com.example.powermockdemo.dao.dos.impl.FinalUserDataServiceImpl;
+import com.example.powermockdemo.dao.dos.impl.UserDataServiceFinalImpl;
 import com.example.powermockdemo.service.UserService;
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -25,11 +23,11 @@ import static org.junit.Assert.*;
  * @date 2022/4/18
  */
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({FinalUserServiceImpl.class,FinalUserDataServiceImpl.class})
-public class FinalUserServiceImplTest {
+@PrepareForTest({UserServiceFinalImpl.class, UserDataServiceFinalImpl.class})
+public class UserServiceFinalImplTest {
 
     @Mock
-    private FinalUserDataServiceImpl userDataService;
+    private UserDataServiceFinalImpl userDataService;
 
     @Before
     public void setUp() throws Exception {
@@ -42,7 +40,7 @@ public class FinalUserServiceImplTest {
     @Test
     public void testQueryUserCountWithMockito() {
         MockitoAnnotations.initMocks(this);
-        UserService userService = new FinalUserServiceImpl(userDataService);
+        UserService userService = new UserServiceFinalImpl(userDataService);
         Mockito.doReturn(10).when(userDataService).getUserCount();
         int result = userService.queryUserCount();
         assertEquals(10, result);
@@ -55,8 +53,8 @@ public class FinalUserServiceImplTest {
 
     @Test
     public void testQueryUserCountWithPowerMock() {
-        FinalUserDataServiceImpl userDataService1 = PowerMockito.mock(FinalUserDataServiceImpl.class);
-        UserService userService = new FinalUserServiceImpl(userDataService1);
+        UserDataServiceFinalImpl userDataService1 = PowerMockito.mock(UserDataServiceFinalImpl.class);
+        UserService userService = new UserServiceFinalImpl(userDataService1);
         Mockito.doReturn(10).when(userDataService1).getUserCount();
         int result = userService.queryUserCount();
         assertEquals(10, result);

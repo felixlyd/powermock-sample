@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -30,7 +31,14 @@ public class UserServiceConstructionTest {
     }
 
     @Test
-    public void testSave() {
+    public void testSave() throws Exception {
         UserDaoConstruction userDaoConstruction = PowerMockito.mock(UserDaoConstruction.class);
+        PowerMockito.whenNew(UserDaoConstruction.class).withArguments(Mockito.anyString(), Mockito.anyString()).thenReturn(userDaoConstruction);
+        PowerMockito.doNothing().when(userDaoConstruction).insert();
+        UserServiceConstruction userServiceConstruction = new UserServiceConstruction();
+        String username = "zhangSan";
+        String password = "123456";
+        userServiceConstruction.save(username, password);
+        Mockito.verify(userDaoConstruction,Mockito.times(1)).insert();
     }
 }

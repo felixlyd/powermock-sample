@@ -37,6 +37,7 @@ public class UserServiceImplArgumentMatchTest {
         String userNameB = "liSi";
         String phoneNumberB = "789";
 
+        //Mockito.argThat 参数规则匹配：当满足XXX条件时，指定特定mock操作
         PowerMockito.doReturn(phoneNumberA).when(userDaoArgumentMatch).getPhoneNumber(Mockito.argThat(str->str.equals(userNameA)));
         PowerMockito.doReturn(phoneNumberB).when(userDaoArgumentMatch).getPhoneNumber(Mockito.argThat(str->str.equals(userNameB)));
 

@@ -85,7 +85,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.powermocklearndemo.PowerMockDemoApplication</mainClass>
+                    <mainClass>com.example.powermockdemo.PowerMockDemoApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

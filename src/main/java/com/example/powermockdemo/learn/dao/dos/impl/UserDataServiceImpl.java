@@ -3,6 +3,7 @@ package com.example.powermockdemo.learn.dao.dos.impl;
 import com.example.powermockdemo.learn.dao.dos.UserDataService;
 import com.example.powermockdemo.learn.dao.vdo.UserDO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 /**
  * class classname
@@ -10,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author : liuyaodong
  * @date 2022/3/7
  */
+@Service
 @Slf4j
 public class UserDataServiceImpl implements UserDataService {
 

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
  * @author : liuyaodong
  * @date 2022/3/7
  */
-@Service
 public interface UserDataService {
     /**
      * 查询所有user返回数量

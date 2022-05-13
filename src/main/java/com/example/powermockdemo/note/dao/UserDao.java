@@ -1,7 +1,6 @@
 package com.example.powermockdemo.note.dao;
 
-import com.example.powermockdemo.learn.dao.vdo.UserDO;
-import org.springframework.stereotype.Service;
+import com.example.powermockdemo.note.entity.UserDO;
 
 /**
  * 操作数据库中user表的接口

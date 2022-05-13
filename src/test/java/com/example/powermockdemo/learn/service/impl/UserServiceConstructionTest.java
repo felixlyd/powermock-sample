@@ -2,6 +2,8 @@ package com.example.powermockdemo.learn.service.impl;
 
 import com.example.powermockdemo.learn.dao.dos.impl.UserDaoConstruction;
 import com.example.powermockdemo.learn.service.impl.UserServiceConstruction;
+import com.example.powermockdemo.note.dao.UserDao;
+import com.example.powermockdemo.note.entity.UserDO;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,6 +1,6 @@
 package com.example.powermockdemo.note.service.user.impl;
 
-import com.example.powermockdemo.learn.dao.vdo.UserDO;
+import com.example.powermockdemo.note.entity.UserDO;
 import com.example.powermockdemo.note.dao.UserDao;
 import com.example.powermockdemo.note.dao.impl.UserDaoImpl;
 import com.example.powermockdemo.note.service.user.UserService;

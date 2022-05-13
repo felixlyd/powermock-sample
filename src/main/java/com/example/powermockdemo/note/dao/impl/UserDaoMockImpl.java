@@ -1,6 +1,6 @@
 package com.example.powermockdemo.note.dao.impl;
 
-import com.example.powermockdemo.learn.dao.vdo.UserDO;
+import com.example.powermockdemo.note.entity.UserDO;
 import com.example.powermockdemo.note.constants.ErrorCodeEnum;
 import com.example.powermockdemo.note.dao.UserDao;
 import lombok.extern.slf4j.Slf4j;

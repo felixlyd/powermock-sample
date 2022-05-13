@@ -1,6 +1,6 @@
 package com.example.powermockdemo.note.service.user.impl;
 
-import com.example.powermockdemo.learn.dao.vdo.UserDO;
+import com.example.powermockdemo.note.entity.UserDO;
 import com.example.powermockdemo.note.dao.UserDao;
 import com.example.powermockdemo.note.service.user.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -56,6 +56,15 @@ public class UserServiceWithConstructorImpl implements UserService {
 
     @Override
     public String queryUserPhoneNumber(UserDO userDO) {
-        return null;
+        if(isOk()){
+            return userDao.queryUserPhoneNumber(userDO);
+        }else {
+            return "";
+        }
+
+    }
+
+    private boolean isOk(){
+        return true;
     }
 }

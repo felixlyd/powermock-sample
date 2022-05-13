@@ -1,6 +1,6 @@
 package com.example.powermockdemo.note.service.user.impl;
 
-import com.example.powermockdemo.learn.dao.vdo.UserDO;
+import com.example.powermockdemo.note.entity.UserDO;
 import com.example.powermockdemo.note.constants.ErrorCodeEnum;
 import com.example.powermockdemo.note.dao.UserDao;
 import com.example.powermockdemo.note.service.common.CommonService;
@@ -67,10 +67,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String queryUserPhoneNumber(UserDO userDO) {
-        return "";
+        if(isOk()){
+            CommonService commonService = new CommonService();
+            return String.valueOf(commonService.getRealNumbers()+CommonService.getNumbers());
+        }
+       return null;
     }
 
     private boolean isOk(){
-        return false;
+        return true;
+    }
+
+    public int getRealNumbers(){
+        CommonService commonService = new CommonService();
+        return commonService.getRealNumbers();
     }
 }

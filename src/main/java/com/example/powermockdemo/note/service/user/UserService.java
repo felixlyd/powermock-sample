@@ -1,6 +1,6 @@
 package com.example.powermockdemo.note.service.user;
 
-import com.example.powermockdemo.learn.dao.vdo.UserDO;
+import com.example.powermockdemo.note.entity.UserDO;
 
 /**
  * user对象相关的逻辑服务

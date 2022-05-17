@@ -1,7 +1,7 @@
 package com.example.powermockdemo.note.service.user.impl;
 
 import com.example.powermockdemo.note.dao.UserDao;
-import com.example.powermockdemo.note.dao.impl.UserDaoImpl;
+import com.example.powermockdemo.note.dao.impl.UserDaoWithFinalImpl;
 import com.example.powermockdemo.note.service.user.UserService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,8 +21,8 @@ import static org.junit.Assert.*;
  */
 // **必须**
 @RunWith(PowerMockRunner.class)
-// 准备需修改字节码的class：引入final类的类
-@PrepareForTest(UserServiceWithFinalImpl.class)
+// 准备需修改字节码的class：引入final类的类和final类
+@PrepareForTest({UserServiceWithFinalImpl.class, UserDaoWithFinalImpl.class})
 public class UserServiceWithFinalImplTest {
 
     /**
@@ -31,7 +31,7 @@ public class UserServiceWithFinalImplTest {
     @Test
     public void testQueryUserCount() {
         // mock类
-        UserDao userDao = PowerMockito.mock(UserDaoImpl.class);
+        UserDao userDao = PowerMockito.mock(UserDaoWithFinalImpl.class);
         // 模拟方法
         PowerMockito.doReturn(10).when(userDao).getUserCount();
         UserService userService = new UserServiceImpl();

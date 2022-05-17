@@ -1,6 +1,7 @@
 package com.example.powermockdemo.note.service.user.impl;
 
 import com.example.powermockdemo.note.dao.impl.UserDaoImpl;
+import com.example.powermockdemo.note.dao.impl.UserDaoWithConstructorImpl;
 import com.example.powermockdemo.note.entity.UserDO;
 import com.example.powermockdemo.note.service.user.UserService;
 import com.example.powermockdemo.note.dao.UserDao;
@@ -10,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -159,7 +161,7 @@ public class UserServiceWithConstructorImplTest {
      * demo-17: private关键字示例
      */
     @Test
-    public void testQueryUserPhoneNumberWithPrivateMock() {
+    public void testQueryUserPhoneNumberWithPrivateMock() throws Exception {
 
         UserService userService = PowerMockito.spy(new UserServiceWithConstructorImpl(new UserDaoImpl()));
         try {
@@ -172,6 +174,27 @@ public class UserServiceWithConstructorImplTest {
         userDO.setName("zhangSan");
         String userPhoneNumber = userService.queryUserPhoneNumber(userDO);
         Assert.assertEquals("", userPhoneNumber);
+        // 验证私有方法
+        PowerMockito.verifyPrivate(userService,Mockito.times(1)).invoke("isOk");
+    }
+
+    /**
+     * demo-18: 顺序验证
+     */
+    @Test
+    public void testSaveUserWithPrivateMethod() throws Exception {
+
+        UserDao userDao = PowerMockito.mock(UserDaoWithConstructorImpl.class);
+
+        UserService userService = PowerMockito.spy(new UserServiceWithConstructorImpl(userDao));
+
+        UserDO userDO = new UserDO();
+        userDO.setName("zhangSan");
+        userService.saveUserWithPrivateMethod(userDO);
+        InOrder inOrder = Mockito.inOrder(userDao);
+        inOrder.verify(userDao).getUserCount();
+        inOrder.verify(userDao).insertUser(userDO);
+        inOrder.verify(userDao).queryUserPhoneNumber(userDO);
     }
 
 }

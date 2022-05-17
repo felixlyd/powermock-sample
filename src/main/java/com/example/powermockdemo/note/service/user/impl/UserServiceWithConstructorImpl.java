@@ -41,7 +41,10 @@ public class UserServiceWithConstructorImpl implements UserService {
 
     @Override
     public void saveUserWithPrivateMethod(UserDO userDO) {
-
+        isOk();
+        userDao.getUserCount();
+        userDao.insertUser(userDO);
+        userDao.queryUserPhoneNumber(userDO);
     }
 
     @Override

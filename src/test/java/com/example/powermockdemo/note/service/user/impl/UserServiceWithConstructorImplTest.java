@@ -165,7 +165,7 @@ public class UserServiceWithConstructorImplTest {
 
         UserService userService = PowerMockito.spy(new UserServiceWithConstructorImpl(new UserDaoImpl()));
         try {
-            PowerMockito.doReturn(false).when(userService, "isOk");
+            PowerMockito.doReturn(false).when(userService, "isOk", Mockito.anyString());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -175,7 +175,7 @@ public class UserServiceWithConstructorImplTest {
         String userPhoneNumber = userService.queryUserPhoneNumber(userDO);
         Assert.assertEquals("", userPhoneNumber);
         // 验证私有方法
-        PowerMockito.verifyPrivate(userService,Mockito.times(1)).invoke("isOk");
+        PowerMockito.verifyPrivate(userService,Mockito.times(1)).invoke("isOk",Mockito.anyString());
     }
 
     /**

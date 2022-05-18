@@ -41,7 +41,7 @@ public class UserServiceWithConstructorImpl implements UserService {
 
     @Override
     public void saveUserWithPrivateMethod(UserDO userDO) {
-        isOk();
+        isOk("1");
         userDao.getUserCount();
         userDao.insertUser(userDO);
         userDao.queryUserPhoneNumber(userDO);
@@ -59,7 +59,7 @@ public class UserServiceWithConstructorImpl implements UserService {
 
     @Override
     public String queryUserPhoneNumber(UserDO userDO) {
-        if(isOk()){
+        if(isOk("1")){
             return userDao.queryUserPhoneNumber(userDO);
         }else {
             return "";
@@ -67,7 +67,7 @@ public class UserServiceWithConstructorImpl implements UserService {
 
     }
 
-    private boolean isOk(){
+    private boolean isOk(String str){
         return true;
     }
 }

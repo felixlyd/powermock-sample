@@ -14,7 +14,7 @@ import org.powermock.reflect.Whitebox;
 import static org.junit.Assert.*;
 
 /**
- * demo-19：如果“静态类”中有需要初始化的私有属性怎么办？
+ * demo-20：如果“静态类”中有需要初始化的私有属性怎么办？
  *
  * @author : liuyaodong
  * @date 2022/5/23

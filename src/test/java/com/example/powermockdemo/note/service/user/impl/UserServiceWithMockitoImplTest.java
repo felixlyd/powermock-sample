@@ -21,6 +21,9 @@ public class UserServiceWithMockitoImplTest {
     @Mock
     private  UserDaoImpl userDaoImpl;
 
+    @Mock
+    private  UserDaoImpl userDaoImpl2;
+
     // 需要注入mock类的类
     @InjectMocks
     private UserService userService = new UserServiceImpl();

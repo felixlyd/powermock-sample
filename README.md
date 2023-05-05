@@ -1,5 +1,6 @@
 # 前言
 本文代码于[GitHub - felixlyd/powermock-sample: 基于powermock进行单元测试demo](https://github.com/felixlyd/powermock-sample)
+
 [powermock.pdf](https://www.yuque.com/attachments/yuque/0/2022/pdf/22002231/1672111195851-43b09804-535b-4973-b9ee-603b52f969ce.pdf)
 ## 一、为什么使用PowerMock？
 ### 1. Mock的理念及使用场景
@@ -385,8 +386,13 @@ public class MyAnswer implements Answer<String> {
 ```
 # Mock单元测试
 [[Solved] IllegalStateException: Could not initialize plugin MockMaker](https://howtodoinjava.com/mockito/plugin-mockmaker-error/)
+
 [SpringRunner vs SpringBootTest](https://stackoverflow.com/questions/58901288/springrunner-vs-springboottest)
+
 [Mockito asks to add @PrepareForTest for the class even after adding @PrepareForTest](https://stackoverflow.com/questions/37925034/mockito-asks-to-add-preparefortest-for-the-class-even-after-adding-preparefort)
+
 [Powermockito一些遇到的坑 - iWuYc - 博客园](https://www.cnblogs.com/iwuyc/p/PowermockitoNotes.html)
+
 [Mockito 3.6.0 中文文档](http://blog.fcj.one/mockito-zh-doc.html)
+
 [Mockito - mockito-core 4.9.0 javadoc](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
